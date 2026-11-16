@@ -1,0 +1,47 @@
+/* STARFORGE stage: a deep-space forge gradient, the canvas centred and
+   letterboxed, one quiet line of controls underneath. */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #05070f radial-gradient(1200px 700px at 50% 30%, #101a33 0%, #05070f 70%);
+  color: #cfe3ff;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+#stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 18px 12px;
+}
+#game {
+  width: min(96vw, 1280px);
+  height: auto;
+  aspect-ratio: 1280 / 800;
+  background: #070b18;
+  border: 1px solid #2b4470;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px rgba(38, 84, 160, 0.15), 0 24px 70px rgba(0, 0, 0, 0.65), 0 0 90px rgba(64, 140, 255, 0.12);
+  cursor: crosshair;
+}
+#hint {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: #7f97bd;
+  text-align: center;
+}
+/* Shot mode (?shot=1): the canvas fills the window edge to edge so the
+   maker's screenshots frame the game itself, nothing around it. */
+body.shot #stage { padding: 0; gap: 0; }
+body.shot #hint { display: none; }
+body.shot #game {
+  width: 100vw;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
